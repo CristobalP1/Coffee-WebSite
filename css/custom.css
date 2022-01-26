@@ -1,0 +1,48 @@
+body {
+    background-color: #2a2420;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+.navct {
+    color:#fff;
+    padding-top: 5px;
+    text-transform: uppercase;
+}
+
+@media (min-width:750px){
+    header{
+        text-align: left;
+    }
+}
+
+ul{
+    list-style: none;
+}
+
+#hero{
+    background-image: url(../img/hero.jpg);
+    position: relative;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+#hero::before{
+    content: "";
+    background:rgba(0, 0, 0, 0.45);
+}
