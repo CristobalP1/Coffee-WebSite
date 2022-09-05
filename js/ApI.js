@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const axiosUpdate = () => {
     axios.get("https://res-api-educacion.herokuapp.com/")
     .then((res)=>{
-        data = res.data
+        data = res.data[0].productos
         printCard(data)
         console.log(data);
     }).catch((err)=>{
@@ -20,11 +20,9 @@ const axiosUpdate = () => {
 
 const printCard = (data) => {
 
-    console.log(data);
 
 
     data.forEach(el => {
-
         const row = document.createElement('div');
         row.innerHTML = `
         <div class="card">
