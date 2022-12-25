@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
 const axiosUpdate = () => {
-    axios.get("https://res-api-educacion.herokuapp.com/")
+    axios.get("https://api-node-sample-production.up.railway.app/")
     .then((res)=>{
         data = res.data[0].productos
         printCard(data)
