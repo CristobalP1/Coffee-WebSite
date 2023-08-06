@@ -17,10 +17,12 @@ h4 {
 }
 
 header {
-    padding: 20px;
     text-align: center;
     background-color: #543311;
+}
 
+header:hover {
+    background-color: #543311;
 }
 
 tr {
@@ -41,6 +43,12 @@ td{
     width: 100%;
     margin-top: 5px;
 }
+
+.table-scroll{
+    max-height: 30rem;
+    overflow-y: auto;
+}
+
 .linea{
     width: 100;
     border: 1px solid #fff;
@@ -97,6 +105,7 @@ td{
 
 .carrito {
     -webkit-filter: hue-rotate(60deg) brightness(500%);
+    font-size: 2em;
 }
 
 
@@ -285,18 +294,57 @@ ul{
     margin: 20px 0;
 }
 
+.agregado-carrito {
+    margin: 20px 0;
+}
+
+.product-added{
+    background-color: #fff;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
     margin-left: 3.3rem;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
+.carrito-shop {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.icono-carrito {
+    font-size: 2em;
+}
+
+.contador {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 80%;
+    background-color: rgb(244, 37, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    padding: 2px;
+    line-height: normal;
+    width: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.count-Cart{
+    display: block;
+
+}
+
 
 .frame-card {
-    width: 25rem;
+    width: 21rem;
 }
 
 .card {
@@ -448,4 +496,25 @@ ul{
     margin-bottom: 20px;
     text-decoration: none;
 }
-/* 1:10:18 */
+
+/* Para pantallas de al menos 600px de ancho */
+@media (max-width: 600px) {
+    .frame-card {
+        width: 18rem;
+    }
+}
+
+@media (max-width: 100px) {
+    .frame-card {
+        flex-basis: calc(51.33% - 10px);
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@ const carrito = document.getElementById('carrito');
 const cafes = document.getElementById('lista-cafe');
 const listasCafes = document.querySelector('tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+const countCart = document.querySelector('.count-Cart');
 
 cargarEventListener();
 
@@ -10,12 +11,36 @@ function cargarEventListener () {
     carrito.addEventListener('click', eliminarCafe);
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
     document.addEventListener('DOMContentLoaded', leerLocalStorage);
+    countCart.textContent = 0;
 }
+
+function countListCart(){
+    let contCart = listasCafes.children.length;
+    if (contCart === 0) {
+        contCart = 0;
+    }
+    countCart.textContent = contCart;
+}
+
+window.addEventListener('scroll', function() {
+    let scrollPosition = window.scrollY;
+    let header = document.querySelector('.header');
+  
+    if (scrollPosition > 100) {
+      header.style.opacity= '0.7';
+    } else {
+        header.style.opacity= '1';
+
+    }
+  });
+
 
 function comprarCafe(e){
     e.preventDefault();
     if(e.target.classList.contains('agregar-carrito')){
         const cafe = e.target.parentElement.parentElement;
+        e.target.classList.remove('agregar-carrito')
+        console.log(e.target.classList.remove);
         leerDatosCafe(cafe);
     }
 }
@@ -29,6 +54,7 @@ function leerDatosCafe(cafe){
     }
 
     insertarCarrito(infoCarro);
+    countListCart();
 }
 
 function insertarCarrito(cafe){
@@ -56,6 +82,7 @@ function eliminarCafe(e){
         cafeId = cafe.querySelector('a').getAttribute('data-id');
     }
     eliminarCafeLocalStorage(cafeId);
+    countListCart()
 }
 
 function vaciarCarrito(){
@@ -64,6 +91,7 @@ function vaciarCarrito(){
     }
 
     vaciarLocalStorage();
+    countListCart()
     return false;
 }
 

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
 const axiosUpdate = () => {
-    axios.get("https://api-node-sample-production.up.railway.app/")
+    axios.get("https://api-node-sample-hhewhc4dz-cristobalp1.vercel.app/")
     .then((res)=>{
         data = res.data[0].productos
         printCard(data)
@@ -25,7 +25,7 @@ const printCard = (data) => {
     data.forEach(el => {
         const row = document.createElement('div');
         row.innerHTML = `
-        <div class="card">
+        <div class="card product">
             <img src="${el.thumbnailUrl}" class="img__card" alt="coffee">
             <div class="info-card">
                 <h4>${el.title}</h4>
