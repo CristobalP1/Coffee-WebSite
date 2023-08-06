@@ -3,6 +3,8 @@ const cafes = document.getElementById('lista-cafe');
 const listasCafes = document.querySelector('tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 const countCart = document.querySelector('.count-Cart');
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
 
 cargarEventListener();
 
@@ -22,6 +24,16 @@ function countListCart(){
     countCart.textContent = contCart;
 }
 
+span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
 window.addEventListener('scroll', function() {
     let scrollPosition = window.scrollY;
     let header = document.querySelector('.header');
@@ -39,8 +51,6 @@ function comprarCafe(e){
     e.preventDefault();
     if(e.target.classList.contains('agregar-carrito')){
         const cafe = e.target.parentElement.parentElement;
-        e.target.classList.remove('agregar-carrito')
-        console.log(e.target.classList.remove);
         leerDatosCafe(cafe);
     }
 }
@@ -68,7 +78,8 @@ function insertarCarrito(cafe){
     `;
     row.classList.add('linea2');
     listasCafes.appendChild(row)
-    guardarCafeLocalStorage(cafe)
+    guardarCafeLocalStorage(cafe);
+    modal.style.display = "block";
 }
 
 function eliminarCafe(e){
